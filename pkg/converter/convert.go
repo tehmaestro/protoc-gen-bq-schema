@@ -392,6 +392,7 @@ func Convert(req *plugin.CodeGeneratorRequest) (*plugin.CodeGeneratorResponse, e
 	}
 
 	res := &plugin.CodeGeneratorResponse{}
+	res.SupportedFeatures = proto.Uint64(1)
 	for _, file := range req.GetProtoFile() {
 		for msgIndex, msg := range file.GetMessageType() {
 			glog.V(1).Infof("Loading a message type %s from package %s", msg.GetName(), file.GetPackage())
